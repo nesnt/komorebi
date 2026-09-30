@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 130, 120, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(140, 130, 120, 0.45);
+}
+
+/* Hide scrollbar for tabs navigation */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Friendly Zen Breathing Orb Animations */
+@keyframes friendlyBreath {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+    filter: drop-shadow(0 4px 18px rgba(245, 158, 11, 0.22));
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+    filter: drop-shadow(0 8px 30px rgba(245, 158, 11, 0.35));
+  }
+}
+
+@keyframes friendlyPulseFast {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 4px 20px rgba(245, 158, 11, 0.4));
+  }
+  50% {
+    transform: scale(1.08);
+    filter: drop-shadow(0 8px 36px rgba(245, 158, 11, 0.6));
+  }
+}
+
+.animate-friendly-breath {
+  animation: friendlyBreath 5s ease-in-out infinite;
+}
+
+.animate-friendly-breath-fast {
+  animation: friendlyPulseFast 2.2s ease-in-out infinite;
+}
+
+/* Obsidian Callouts and Notes in Friendly Style */
+.obsidian-callout-quote-light {
+  border-left: 3px solid #8b5cf6;
+  background: #f5f3ff;
+  padding: 0.85rem 1.1rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  margin: 1rem 0;
+}
+
+.obsidian-callout-learn-light {
+  border-left: 3px solid #10b981;
+  background: #ecfdf5;
+  padding: 0.85rem 1.1rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  margin: 1rem 0;
+}
+
+.obsidian-callout-quote-dark {
+  border-left: 3px solid #c084fc;
+  background: rgba(192, 132, 252, 0.08);
+  padding: 0.85rem 1.1rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  margin: 1rem 0;
+}
+
+.obsidian-callout-learn-dark {
+  border-left: 3px solid #34d399;
+  background: rgba(52, 211, 153, 0.08);
+  padding: 0.85rem 1.1rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  margin: 1rem 0;
+}

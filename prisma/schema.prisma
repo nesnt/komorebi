@@ -1,0 +1,33 @@
+// Prisma schema for Komorebi - Jurnal Refleksi & Second Brain
+// Documentation: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model JournalEntry {
+  id                String   @id @default(cuid())
+  title             String
+  date              String
+  time              String?
+  tags              String[] @default([])
+  dominantEmotion   String   @default("Reflektif")
+  moodScore         Int      @default(3)
+  energyLevel       String   @default("Sedang")
+  summary           String   @db.Text
+  keyInsights       String[] @default([])
+  actionItems       String[] @default([])
+  connectedConcepts String[] @default([])
+  sourceMode        String   @default("voice") // 'voice' | 'manual'
+  rawTranscript     String?  @db.Text
+  markdownContent   String   @db.Text
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("journal_entries")
+}
